@@ -3,9 +3,15 @@ import CodeEditor from './code-editor';
 import Preview from './preview';
 import bundle from '../bundler';
 import Resizable from './resizable';
+import { Cell } from '../state';
+import { useActions } from '../hooks/use-actions';
 
 
-const CodeCell = () => {
+interface CodeCellProps {
+    cell: Cell;
+}
+
+const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     const [code, setCode] = useState('');
     const [err, setErr] = useState('');
     const [input, setInput] = useState('');
